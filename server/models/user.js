@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  polls: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);
