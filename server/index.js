@@ -8,6 +8,9 @@ const port = process.env.PORT; // process.env
 // error handler import
 const handle = require('./handlers/index');
 
+// db
+const db = require('./models');
+
 app.use(cors());
 app.use(bodyParser.json());
 
