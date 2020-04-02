@@ -13,7 +13,8 @@ if (process.env.NODE_ENV === 'development') {
     });
   });
 }
-mongoose.connect('mongodb://localhost/vote', {
+console.log(process.env.DB);
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
