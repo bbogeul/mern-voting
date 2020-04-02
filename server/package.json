@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "seed": "node ./test/seed.js"
   },
   "author": "Joseph Lee",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.4",
     "@types/node": "^13.9.8",
+    "swagger-ui-express": "^4.1.4",
     "typescript": "^3.8.3"
   },
   "dependencies": {

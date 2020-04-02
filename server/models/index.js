@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.set('debug', true);
+mongoose.set('useCreateIndex', true);
 mongoose.Promise = global.Promise;
 if (process.env.NODE_ENV === 'development') {
   mongoose.connection.on('open', function(ref) {
@@ -16,3 +17,6 @@ mongoose.connect('mongodb://localhost/vote', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+module.exports.User = require('./user');
+module.exports.Poll = require('./poll');
