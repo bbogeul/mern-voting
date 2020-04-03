@@ -4,16 +4,42 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT; // process.env
+// swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSdoc = require('swagger-jsdoc');
 
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'MERN-VOTING',
+      version: '1.0.0',
+      description: 'MONGO-EXPRESS.',
+    },
+    servers: [`http://localhost:${process.env.PORT}`],
+  },
+  apis: ['index.js'],
+};
+
+const swaggerDocs = swaggerJSdoc(swaggerOptions);
 // error handler import
 const handle = require('./handlers/index');
 
 // db
 const db = require('./models');
 
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(cors());
 app.use(bodyParser.json());
 
+/**
+ * @swagger
+ * /:
+ *  get:
+ *    description: Hello World
+ *    responses:
+ *      '200':
+ *        description: success
+ */
 app.get('/', (req, res) => {
   res.json({ hello: 'hello world' });
 });

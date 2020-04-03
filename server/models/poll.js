@@ -21,6 +21,10 @@ const pollSchema = new mongoose.Schema({
       ref: 'User',
     },
   ],
+  created: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 module.exports = mongoose.model('Poll', pollSchema);

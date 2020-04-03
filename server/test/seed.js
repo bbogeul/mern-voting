@@ -50,7 +50,7 @@ const seed = async () => {
 
     await Promise.all(
       polls.map(async poll => {
-        poll.options = poll.options.map(option => ({ option, votes: 0 }));
+        poll.options = poll.options.map(option => ({ option, votes: false }));
         const data = await db.Poll.create(poll);
         const user = await db.User.findOne({ username: 'username' });
         data.user = user;
