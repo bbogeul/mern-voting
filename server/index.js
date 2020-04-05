@@ -49,7 +49,7 @@ app.use(bodyParser.json());
  * /:
  *  get:
  *    tags:
- *      - Test
+ *      - Default
  *    description: Hello World
  *    responses:
  *      '200':

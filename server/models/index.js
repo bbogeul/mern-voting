@@ -19,5 +19,10 @@ mongoose.connect(process.env.DB, {
   useUnifiedTopology: true,
 });
 
-module.exports.User = require('./user');
+// export models
+
+// user models
+module.exports.User = require('./users/user');
+module.exports.UserUpdateHistory = require('./users/user-update-history');
+// polls
 module.exports.Poll = require('./poll');
